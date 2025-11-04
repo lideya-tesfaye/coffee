@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EthioCulture – Ethiopian Heritage Marketplace</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#8B4513 0%,#D2691E 100%);color:#333;line-height:1.6;}
+    header{background:rgba(0,0,0,0.8);color:#fff;padding:1rem 0;text-align:center;position:fixed;width:100%;top:0;z-index:1000;}
+    nav ul{list-style:none;display:flex;justify-content:center;gap:2rem;margin-top:.5rem;flex-wrap:wrap;}
+    nav a{color:#fff;text-decoration:none;font-weight:bold;transition:.3s;}
+    nav a:hover{color:#D2691E;}
+    .hero{text-align:center;padding:120px 20px 50px;background:linear-gradient(135deg,#8B4513 0%,#D2691E 100%);color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.7);}
+    .hero h1{font-size:3rem;margin-bottom:1rem;}
+    .hero p{font-size:1.2rem;max-width:800px;margin:0 auto;}
+    main{max-width:1200px;margin:0 auto;padding:20px;}
+    .section{margin-bottom:4rem;background:rgba(255,255,255,.9);border-radius:10px;padding:2rem;box-shadow:0 4px 8px rgba(0,0,0,.1);}
+    .section h2{text-align:center;color:#8B4513;margin-bottom:1rem;font-size:2rem;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}
+    .card{border:1px solid #ddd;border-radius:8px;overflow:hidden;text-align:center;transition:transform .3s;cursor:pointer;background:white;}
+    .card:hover{transform:scale(1.05);}
+    .card img{width:100%;height:180px;object-fit:cover;}
+    .card h3{padding:.5rem;font-size:1.1rem;}
+    footer{background:rgba(0,0,0,.8);color:#fff;text-align:center;padding:1rem;margin-top:2rem;}
+    .subnav{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+    .subnav button{background:#A0522D;color:#fff;padding:.6rem 1.2rem;border:none;border-radius:25px;font-weight:bold;cursor:pointer;transition:.3s;}
+    .subnav button:hover{background:#8B4513;transform:scale(1.05);}
+    #coffee-form{background:white;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.1);padding:1.5rem;max-width:500px;margin:1rem auto;}
+    #coffee-form input,#coffee-form textarea,#coffee-form select{width:100%;padding:.6rem;margin:.4rem 0;border:1px solid #ccc;border-radius:5px;}
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>EthioCulture</h1>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#clothes">Cultural Clothes</a></li>
+      <li><a href="#coffee">Coffee</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Discover Ethiopian Heritage</h1>
+  <p>Shop traditional clothes, sculptures, coffee, and explore Ethiopia’s beauty.</p>
+</section>
+
+<main>
+  <!-- Coffee Trading Section -->
+  <section id="coffee" class="section">
+    <h2>Ethiopian Coffee Trading</h2>
+    <p style="text-align:center;margin-bottom:1.5rem;">
+      Explore Ethiopia’s finest coffee — raw, roasted, unroasted, and ground.
+    </p>
+
+    <div class="grid" id="coffee-type-gallery">
+      <div class="card" onclick="openCoffeeForm('Raw Coffee')">
+        <img src="img/ethiopia-yirgacheffe-aricha-gr1-natural-green-coffee-beans-stonex-specialty-coffee-1_1080x.webp" alt="Raw Coffee"><h3>Raw Coffee</h3>
+      </div>
+      <div class="card" onclick="openCoffeeForm('Roasted Coffee')">
+        <img src="img/download (3).jpg" alt="Roasted Coffee"><h3>Roasted Coffee</h3>
+      </div>
+      <div class="card" onclick="openCoffeeForm('Unroasted Coffee')">
+        <img src="img/download (4).jpg" alt="Unroasted Coffee"><h3>Unroasted Coffee</h3>
+      </div>
+      <div class="card" onclick="openCoffeeForm('Ground Coffee')">
+        <img src="img/images (2).jpg" alt="Ground Coffee"><h3>Ground Coffee</h3>
+      </div>
+    </div>
+
+    <hr style="margin:2rem 0;">
+
+    <!-- Category navigation buttons (fixed routing) -->
+    <div class="subnav" id="coffee-subnav">
+      <button onclick="window.location.href='./raw.html'">Raw Coffee</button>
+      <button onclick="window.location.href='./roasted.html'">Roasted Coffee</button>
+      <button onclick="window.location.href='./unroasted.html'">Unroasted Coffee</button>
+      <button onclick="window.location.href='./ground.html'">Ground Coffee</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 EthioCulture – All rights reserved.</p>
+</footer>
+
+<!-- Coffee Seller Upload Form -->
+<div id="coffee-form" style="display:none;">
+  <h3 style="text-align:center;">Coffee Seller – Upload Product</h3>
+  <form id="coffeeUploadForm">
+    <input type="text" placeholder="Company name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="file" accept="image/*" required>
+    <input type="text" placeholder="Product name" required>
+    <input type="text" placeholder="Origin (e.g., Sidamo, Harar, Yirgacheffe)" required>
+    <select required>
+      <option value="">Select Category</option>
+      <option value="raw">Raw Coffee</option>
+      <option value="roasted">Roasted Coffee</option>
+      <option value="unroasted">Unroasted Coffee</option>
+      <option value="ground">Ground Coffee</option>
+    </select>
+    <textarea placeholder="Description & price" required></textarea>
+    <button type="submit" class="btn">Submit for Admin Approval</button>
+  </form>
+</div>
+
+<script>
+function openCoffeeForm(type){
+  document.getElementById('coffee-form').style.display='block';
+  window.scrollTo({top:document.getElementById('coffee-form').offsetTop,behavior:'smooth'});
+}
+document.addEventListener('submit',function(e){
+  if(e.target.id==='coffeeUploadForm'){
+    e.preventDefault();
+    alert('Product submitted for admin approval…');
+    e.target.reset();
+    document.getElementById('coffee-form').style.display='none';
+  }
+});
+</script>
+</body>
+</html>
